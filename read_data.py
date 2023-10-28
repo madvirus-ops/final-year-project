@@ -38,4 +38,4 @@ yearly_daily_average.reset_index(inplace=True)
 print(yearly_daily_average)
 
 # Save the result to Excel
-yearly_daily_average.to_excel('result2.xlsx', index=False)
+yearly_daily_average.to_excel('average_daily.xlsx', index=False)
