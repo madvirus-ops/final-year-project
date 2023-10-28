@@ -23,7 +23,7 @@
 # this worked
 import pandas as pd
 
-data = pd.read_csv('fyp/final_data_csv.csv')
+data = pd.read_csv('final_data_csv.csv')
 
 # Convert 'DOY' to integer type
 data['DOY'] = data['DOY'].astype(int)
@@ -35,7 +35,7 @@ yearly_daily_average = data.groupby(['YEAR', 'DOY']).mean()
 yearly_daily_average.reset_index(inplace=True)
 
 # Print the result
-print(yearly_daily_average)
+# print(yearly_daily_average)
 
 # Save the result to Excel
 yearly_daily_average.to_excel('average_daily.xlsx', index=False)
