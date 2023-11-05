@@ -114,39 +114,106 @@
 # plt.show()
 
 # No need to show the plots here since they are saved individually
-import os
-import pandas as pd
-import matplotlib.pyplot as plt
+# import os
+# import pandas as pd
+# import matplotlib.pyplot as plt
 
-data = pd.read_csv('final_data_csv.csv')
+# data = pd.read_csv('final_data_csv.csv')
 
 # Exclude 'DOY' and 'YEAR' columns
-numeric_data = data.drop(['DOY', 'YEAR'], axis=1)
+# numeric_data = data.drop(['DOY', 'YEAR'], axis=1)
 
-# Create a folder named "plots" if it doesn't exist
-output_folder = 'plots'
-os.makedirs(output_folder, exist_ok=True)
+# # Create a folder named "plots" if it doesn't exist
+# output_folder = 'plots'
+# os.makedirs(output_folder, exist_ok=True)
 
-# Iterate over each row to create separate plots
-for i, (index, row) in enumerate(numeric_data.iterrows()):
-    fig, ax = plt.subplots(figsize=(10, 6))
+# # Iterate over each row to create separate plots
+# for i, (index, row) in enumerate(numeric_data.iterrows()):
+#     fig, ax = plt.subplots(figsize=(10, 6))
 
-    # Plot the row against 'Hour' with a unique color for each year
-    for year, color in zip(data['YEAR'].unique(), ['red', 'blue', 'green', 'purple']):
-        year_data = data[data['YEAR'] == year]
-        ax.plot(year_data['Hour'], row, label=f'Year {year}', alpha=0.7, color=color)
+#     # Plot the row against 'Hour' with a unique color for each year
+#     for year, color in zip(data['YEAR'].unique(), ['red', 'blue', 'green', 'purple']):
+#         year_data = data[data['YEAR'] == year]
+#         ax.plot(year_data['Hour'], row, label=f'Year {year}', alpha=0.7, color=color)
 
-    # Customize the plot
-    ax.set_xlabel('Hour')
-    ax.set_ylabel('Value')
-    ax.legend(title='Year', bbox_to_anchor=(1, 1), loc='upper left')
-    ax.set_title(f'Hourly Data for Row {index}')
+#     # Customize the plot
+#     ax.set_xlabel('Hour')
+#     ax.set_ylabel('Value')
+#     ax.legend(title='Year', bbox_to_anchor=(1, 1), loc='upper left')
+#     ax.set_title(f'Hourly Data for Row {index}')
 
-    # Save the figure with higher resolution into the "plots" folder
-    output_path = os.path.join(output_folder, f'hourly_data_row_{index}_plot.png')
-    plt.savefig(output_path, dpi=300, bbox_inches='tight')
+#     # Save the figure with higher resolution into the "plots" folder
+#     output_path = os.path.join(output_folder, f'hourly_data_row_{index}_plot.png')
+#     plt.savefig(output_path, dpi=300, bbox_inches='tight')
 
-    # Close the plot to release memory
-    plt.close()
+#     # Close the plot to release memory
+#     plt.close()
 
 # No need to show the plots here since they are saved individually
+
+# print(data)
+# for row, col in data.items():
+#     # plt.plot(row,col)
+#     # plt.savefig("plt.png")
+#     print(row)
+
+# plt.plot(data[0],data[1])
+
+
+# import pandas as pd
+# import matplotlib.pyplot as plt
+
+# # Read the CSV file into a Pandas DataFrame
+# file_path = "final_data_csv.csv"  # Replace with the actual path to your CSV file
+# data = pd.read_csv(file_path)
+# data = data.drop(columns=['YEAR'])
+
+
+# # Transpose the DataFrame
+# transposed_data = data.set_index('DOY').T
+
+# # Plot each variable against the 'DOY'
+
+# for column in transposed_data.columns:
+#     plt.plot(transposed_data[column],transposed_data.index,  label=f'{column}')
+#     plt.xlabel('Day of Year (DOY)')
+#     plt.ylabel('Values')
+#     plt.title('Data vs. DOY')
+#     plt.legend()
+#     plt.savefig(f'plots/{column}_vs_DOY.png')
+#     plt.close()  # Close the current figure to start a new one
+# # Optionally, display a message indicating the completion
+# print("Plots saved to the 'plots' directory.")
+
+
+
+
+
+# Create the 'plots' directory if it doesn't exist
+# os.makedirs("plots", exist_ok=True)
+
+# # Exclude the 'Year' column if it exists
+# if 'Year' in data.columns:
+#     data = data.drop(columns=['Year'])
+
+# # Plot each row against the 'DOY' and save to the 'plots' directory
+# for index, row in data.iterrows():
+#     plt.plot(data['DOY'], row, label=f'Row {index}')
+
+#     plt.xlabel('Day of Year (DOY)')
+#     plt.ylabel('Values')
+#     plt.title(f'Data vs. DOY - Row {index}')
+#     plt.legend()
+    
+#     # Save each plot with a unique filename
+#     plt.savefig(f'plots/row_{index}_vs_DOY.png')
+    
+#     # Clear the current figure for the next iteration
+#     plt.clf()
+
+# # Optionally, display a message indicating the completion
+# print("Plots saved to the 'plots' directory.")
+
+# print(data['columns'])
+
+
