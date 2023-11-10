@@ -40,7 +40,7 @@ for column in data.columns:
     plt.subplots_adjust(hspace=0.5)  # Adjust the vertical space between subplots
 
     # Save the plot with the sanitized column name
-    plt.savefig(f'plot_daily_sub/{sanitized_column_name}_vs_Hour_subplots.png')
+    plt.savefig(f'plot_daily_sub/{sanitized_column_name}_vs_Daily_average_subplots.png')
 
     plt.close()  # Close the current figure
 
