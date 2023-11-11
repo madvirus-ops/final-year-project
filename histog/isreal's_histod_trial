@@ -1,0 +1,40 @@
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Read the data from the Excel file
+data = pd.read_excel('Cycle24_Daily_Averaged.xlsx')
+
+# Get the column names except for the 'Year' column
+parameters = data.columns[1:]
+
+# Create the "Histod" directory if it doesn't exist
+directory = 'Histod'
+if not os.path.exists(directory):
+    os.makedirs(directory)
+
+# Create subplots for each parameter
+fig, axs = plt.subplots(len(parameters), 1, figsize=(8, len(parameters)*4))
+
+# Generate the x-axis values from 2008 to 2019
+years =data['YEAR'].unique() #range(2008, 2020)
+
+# Plot histograms for each parameter
+for i, param in enumerate(parameters):
+    axs[i].hist(years, bins=20, edgecolor='black', alpha=0.7)
+    axs[i].plot(years, data[param], color='red', linewidth=1.5, label=param)
+    axs[i].set_xlabel('Year')
+    axs[i].set_ylabel(param)
+    axs[i].set_title(f'{param} vs YEAR')
+
+    # Add the legend
+    axs[i].legend()
+
+    # Save the plot to the "Histod" directory
+    plt.savefig(os.path.join(directory, f'{param}_histogram.png'))
+
+# Adjust the spacing between subplots
+plt.tight_layout()
+
+# Display the plot
+plt.show()
