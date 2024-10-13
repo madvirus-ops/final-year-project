@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 import os
 
 # Read the Excel file into a Pandas DataFrame
-file_path = "lastes_daily_data.xlsx"  # Replace with the actual path to your Excel file
-data = pd.read_excel("latest_daily_data.xlsx")
+file_path = "rhe.xlsx"  # Replace with the actual path to your Excel file
+data = pd.read_excel("rhe.xlsx")
 
 # Create the 'plots' directory if it doesn't exist
 os.makedirs("plot_daily_sub", exist_ok=True)
@@ -40,7 +40,7 @@ for column in data.columns:
     plt.subplots_adjust(hspace=0.5)  # Adjust the vertical space between subplots
 
     # Save the plot with the sanitized column name
-    plt.savefig(f'Histod/{sanitized_column_name}_vs_Daily_average_subplots.png')
+    plt.savefig(f'RHE_DATA/{sanitized_column_name}_vs_Daily_average_subplots.png')
 
     plt.close()  # Close the current figure
 
